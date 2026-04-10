@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtoryX — Custom Websites, AI Platforms & Graphic Design Studio</title>
+    <meta name="description" content="ArtoryX is a premium digital studio building custom websites, AI-powered platforms, and graphic design for brands that demand excellence.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ArtoryX — Custom Websites, AI Platforms & Graphic Design Studio">
+    <meta property="og:description" content="ArtoryX is a premium digital studio building custom websites, AI-powered platforms, and graphic design for brands that demand excellence.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{fontFamily:{outfit:['Outfit','sans-serif'],inter:['Inter','sans-serif']}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @keyframes scrollPulse {
+            0% { transform: translateY(-100%); opacity: 0; }
+            40% { opacity: 1; }
+            100% { transform: translateY(200%); opacity: 0; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 9px 20px; border-radius: 999px;
+            border: 1px solid rgba(139,92,246,0.2);
+            background: rgba(139,92,246,0.06);
+            backdrop-filter: blur(12px);
+            font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--accent-light); margin-bottom: 36px;
+        }
+        .count-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-subtle);
+            border-radius: 28px;
+            padding: 40px 36px;
+            transition: all 0.5s var(--ease);
+        }
+        .count-card:hover {
+            background: var(--surface-1);
+            border-color: var(--border-medium);
+            transform: translateY(-3px);
+        }
+        .service-icon-wrap {
+            width: 52px; height: 52px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+        }
+        .process-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem; font-weight: 900; letter-spacing: -0.06em;
+            line-height: 1; opacity: 0.08; color: #fff;
+            margin-bottom: 16px;
+        }
+        .floating-card {
+            background: rgba(8,8,16,0.75);
+            border: 1px solid var(--border-subtle);
+            border-radius: 22px;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            transition: border-color 0.4s ease;
+        }
+        .floating-card:hover { border-color: var(--border-medium); }
+        .marquee-divider {
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: linear-gradient(90deg, transparent, rgba(139,92,246,0.015), transparent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── PAGE LOADER ── -->
+    <div id="page-loader">
+        <div class="loader-gif-wrap">
+            <img src="background/9EB4563D-4A4B-42D3-A9F5-13EE2525C58A.GIF" class="loader-main-gif" alt="">
+        </div>
+        <div class="loader-logo-row">
+            <img src="images/Artorylogo.png" class="loader-logo-img-el" alt="" onerror="this.style.display='none'">
+            <span class="loader-wordmark">ArtoryX</span>
+        </div>
+        <div class="loader-progress-track"><div class="loader-progress-fill"></div></div>
+        <p class="loader-tagline">Crafting Digital Excellence</p>
+    </div>
+
+    <div id="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="cursor-glow hidden lg:block"></div>
+
+    <!-- Mobile Menu -->
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo-lockup" id="nav-logo-link" aria-label="ArtoryX Home">
+                <img src="images/Artorylogo.png" alt="" class="nav-logo-img" id="nav-logo" onerror="this.style.display='none';">
+                <span class="nav-logo gradient-text-logo">ArtoryX</span>
+            </a>
+            <div class="nav-links hidden lg:flex nav-center">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="work.html" class="nav-link">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hidden lg:block">
+                <a href="contact.html" class="btn-nav">Get in Touch</a>
+            </div>
+            <button id="menu-toggle" class="hamburger-btn lg:hidden" aria-label="Menu">
+                <span class="hb-bar hb-top"></span>
+                <span class="hb-bar hb-bot"></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="section-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="bg-media">
+            <img src="background/20F589A2-AD1E-41F8-859D-4789BFC4D63E.GIF" alt="" data-parallax="0.4">
+        </div>
+        <div class="bg-overlay bg-overlay-hero"></div>
+        <div class="grid-pattern"></div>
+        <div id="particles" class="absolute inset-0 z-[1] pointer-events-none overflow-hidden"></div>
+
+        <!-- Ambient orbs -->
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="gradient-orb gradient-orb-3"></div>
+
+        <div class="relative z-10 w-full max-w-[1360px] mx-auto px-6 lg:px-14 pt-36 pb-24">
+            <div class="max-w-4xl">
+
+                <div>
+
+                    <div class="reveal hero-badge">
+                        <span class="status-dot"></span>
+                        Manipur's Premium Digital Studio
+                    </div>
+
+                    <h1 class="reveal reveal-d1 font-extrabold tracking-tight mb-8 hero-heading"
+                        style="font-family:'Outfit',sans-serif;font-size:clamp(3.8rem,7vw,7.2rem);line-height:1.0;">
+                        We build digital<br>
+                        <span class="gradient-text-hero">products that</span><br>set you apart.
+                    </h1>
+
+                    <!-- Affordability tagline -->
+                    <div class="reveal reveal-d2 flex items-center gap-3 mb-6">
+                        <span style="display:inline-block;width:28px;height:1.5px;background:var(--accent-light);border-radius:1px;"></span>
+                        <p style="font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-light);">Based in Imphal &nbsp;&middot;&nbsp; Serving Worldwide</p>
+                    </div>
+
+                    <p class="reveal reveal-d2 max-w-lg leading-relaxed mb-12 text-lg" style="color:var(--text-body);">
+                        Custom websites, AI platforms &amp; graphic design — built to perform, crafted to impress. <strong style="color:#fff;font-weight:600;">Starting from&nbsp;&#8377;2,999.</strong>
+                    </p>
+
+                    <div class="reveal reveal-d3 flex flex-wrap items-center gap-4 mb-14">
+                        <a href="contact.html" class="btn-primary text-base px-9 py-[18px]">
+                            <span>Get in Touch</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="work.html" class="btn-secondary text-base px-9 py-[17px]">
+                            <span>View Work</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust line — clean, minimal, no warm colors -->
+                    <div class="reveal reveal-d4 flex flex-wrap items-center gap-7">
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-bolt-lightning text-xs" style="color:var(--accent-light);"></i>
+                            <span class="text-xs font-medium tracking-wide" style="color:var(--text-muted);">Fast Delivery</span>
+                        </div>
+                        <div style="width:1px;height:14px;background:var(--border-subtle);"></div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-star text-xs" style="color:var(--accent-light);"></i>
+                            <span class="text-xs font-medium tracking-wide" style="color:var(--text-muted);">100% Satisfaction</span>
+                        </div>
+                        <div style="width:1px;height:14px;background:var(--border-subtle);"></div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-shield-check text-xs" style="color:var(--accent-light);"></i>
+                            <span class="text-xs font-medium tracking-wide" style="color:var(--text-muted);">50+ Projects Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-3">
+            <span class="text-[9px] font-bold uppercase tracking-[0.45em]" style="color:var(--text-muted);">Scroll</span>
+            <div class="relative w-[1px] h-12 overflow-hidden" style="background:rgba(255,255,255,0.04);">
+                <div class="absolute top-0 left-0 w-full" style="height:55%;background:linear-gradient(180deg,transparent,var(--accent));animation:scrollPulse 2s ease-in-out infinite;"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== MARQUEE ==================== -->
+    <div class="marquee-divider relative overflow-hidden py-5">
+        <div class="marquee-track">
+            <div class="flex items-center gap-12 px-8">
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">Web Solutions</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">Graphic Design</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">AI Platforms</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">Deep Learning</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">Brand Identity</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">UI/UX Design</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">Motion Graphics</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">Event Posters</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+            </div>
+            <div class="flex items-center gap-12 px-8" aria-hidden="true">
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">Web Solutions</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">Graphic Design</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">AI Platforms</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">Deep Learning</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">Brand Identity</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">UI/UX Design</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap gradient-text">Motion Graphics</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+                <span class="text-[9px] font-black tracking-[0.32em] uppercase whitespace-nowrap" style="color:rgba(255,255,255,0.1);">Event Posters</span>
+                <span style="color:rgba(255,255,255,0.06);">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MARQUEE STRIP ==================== -->
+    <div class="py-10 overflow-hidden" style="border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);background:rgba(255,255,255,0.01);">
+        <div class="tech-marquee-wrap">
+            <div class="tech-marquee-track">
+                <!-- set 1 -->
+                <span class="tech-marquee-item"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-react"></i> React.js</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-n"></i> Next.js</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-brain"></i> TensorFlow</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-robot"></i> Gemini AI</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-aws"></i> AWS EC2</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-cloud"></i> Vercel</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-database"></i> MongoDB</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-pen-ruler"></i> Figma</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-palette"></i> Adobe Suite</span>
+                <!-- set 2 (duplicate for seamless loop) -->
+                <span class="tech-marquee-item"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-react"></i> React.js</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-n"></i> Next.js</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-python"></i> Python</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-brain"></i> TensorFlow</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-robot"></i> Gemini AI</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-aws"></i> AWS EC2</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-cloud"></i> Vercel</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-database"></i> MongoDB</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-pen-ruler"></i> Figma</span>
+                <span class="tech-marquee-item"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                <span class="tech-marquee-item"><i class="fa-solid fa-palette"></i> Adobe Suite</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== STATS ==================== -->
+    <section class="section-bg relative py-32 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/DF075031-D309-4C2D-BF06-28FC0398563A.GIF" alt="" data-parallax="0.3">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="reveal count-card text-center">
+                    <p class="counter-number text-6xl sm:text-7xl lg:text-[5.5rem] mb-3 gradient-text-hero" data-count="50" data-suffix="+">0</p>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.22em]" style="color:var(--text-muted);">Projects Delivered</p>
+                </div>
+                <div class="reveal reveal-d1 count-card text-center">
+                    <p class="counter-number text-6xl sm:text-7xl lg:text-[5.5rem] mb-3 gradient-text-hero" data-count="100" data-suffix="%">0</p>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.22em]" style="color:var(--text-muted);">Client Satisfaction</p>
+                </div>
+                <div class="reveal reveal-d2 count-card text-center">
+                    <p class="counter-number text-6xl sm:text-7xl lg:text-[5.5rem] mb-3 gradient-text-hero" data-count="3" data-suffix="+">0</p>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.22em]" style="color:var(--text-muted);">Years Experience</p>
+                </div>
+                <div class="reveal reveal-d3 count-card text-center">
+                    <p class="counter-number text-6xl sm:text-7xl lg:text-[5.5rem] mb-3 gradient-text-hero" data-count="24" data-suffix="/7">0</p>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.22em]" style="color:var(--text-muted);">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="section-bg relative py-40 sm:py-52 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/6E3DA909-E63C-4C7E-8E5C-BD524ED3A97F.GIF" alt="" data-parallax="0.15">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+        <div class="gradient-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(124,92,252,0.07),transparent 70%);top:-150px;right:-200px;filter:blur(100px);animation:orbFloat1 24s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-24 lg:gap-40 items-center">
+                <div>
+                    <span class="reveal section-label">Who We Are</span>
+                    <h2 class="reveal reveal-d1 section-heading text-5xl sm:text-6xl md:text-[4.5rem] mb-7">
+                        We are<br><span class="gradient-text">ArtoryX.</span>
+                    </h2>
+                    <div class="reveal reveal-d2 line-accent mb-9"></div>
+                    <p class="reveal reveal-d2 section-body mb-6">
+                        ArtoryX is a premium digital studio that builds <strong class="text-white">custom websites</strong>, <strong class="text-white">AI-powered platforms</strong>, and premium graphic design for businesses that demand more.
+                    </p>
+                    <p class="reveal reveal-d3 section-body mb-6">
+                        From Imphal to the world — we build high-performance digital products for Manipur businesses and brands beyond Northeast India.
+                    </p>
+                    <p class="reveal reveal-d4 section-body mb-12">
+                        Founded by <strong class="text-white">Shakespeare Chabungbam</strong> (MCA, Manipur University) — supported by a diverse team of creative designers, developers, and digital strategists, all based in Manipur.
+                    </p>
+                    <div class="reveal reveal-d5 flex flex-wrap gap-4">
+                        <a href="services.html" class="btn-primary">
+                            <span>Our Services</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="contact.html" class="btn-secondary">
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="reveal glass-card p-7 group flex items-start gap-5">
+                        <div class="icon-box flex-shrink-0 group-hover:shadow-[0_0_28px_-4px_var(--accent-glow)] group-hover:border-[rgba(139,92,246,0.18)]" style="transition:all 0.45s;">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">Performance First</h4>
+                            <p class="text-sm leading-relaxed" style="color:var(--text-body);">Every pixel is purposeful. Every line of code is optimised. We build fast, beautiful, and future-proof digital products.</p>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d1 glass-card p-7 group flex items-start gap-5">
+                        <div class="icon-box flex-shrink-0" style="background:rgba(245,158,11,0.06);border-color:rgba(245,158,11,0.1);color:var(--accent-warm);transition:all 0.45s;">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">100% Custom Built</h4>
+                            <p class="text-sm leading-relaxed" style="color:var(--text-body);">No templates. No shortcuts. Every project is built from scratch, tailored to your brand and goals.</p>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d2 glass-card p-7 group flex items-start gap-5">
+                        <div class="icon-box flex-shrink-0" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.1);color:#22c55e;transition:all 0.45s;">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">AI-Capable</h4>
+                            <p class="text-sm leading-relaxed" style="color:var(--text-body);">We integrate the latest AI and Deep Learning — from GPT to custom models — directly into your platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== SERVICES (BENTO GRID) ==================== -->
+    <section class="section-bg relative py-40 sm:py-52 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/DF075031-D309-4C2D-BF06-28FC0398563A.GIF" alt="" data-parallax="0.12">
+        </div>
+        <div class="bg-overlay" style="background:linear-gradient(180deg,rgba(3,3,5,0.97) 0%,rgba(3,3,5,0.6) 30%,rgba(3,3,5,0.6) 70%,rgba(3,3,5,0.97) 100%);"></div>
+        <div class="gradient-orb" style="width:800px;height:800px;background:radial-gradient(circle,rgba(124,92,252,0.05),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(120px);animation:orbFloat3 22s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 mb-20">
+                <div>
+                    <span class="reveal section-label">What We Build</span>
+                    <h2 class="reveal reveal-d1 section-heading text-5xl sm:text-6xl md:text-[4.5rem]">
+                        Our expertise.
+                    </h2>
+                </div>
+                <div class="reveal reveal-d2 flex-shrink-0">
+                    <a href="services.html" class="btn-secondary text-sm">
+                        <span>All Services</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="bento-grid">
+
+                <!-- Primary large card — Web Solutions + AI Platforms -->
+                <div class="reveal bento-card span-2" style="background:linear-gradient(135deg,rgba(109,40,217,0.08),rgba(139,92,246,0.03),transparent);">
+                    <div class="service-icon-wrap" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.14);">
+                        <i class="fa-solid fa-globe text-xl" style="color:var(--accent-light);"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-3" style="font-family:'Outfit',sans-serif;">Web Solutions</h3>
+                    <p class="text-sm leading-relaxed mb-6 max-w-sm" style="color:var(--text-body);">Custom websites, landing pages & full-stack platforms — fast, responsive, and built to convert. From simple portfolios to complex AI-powered web apps.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tech-tag">Responsive</span>
+                        <span class="tech-tag">Blazing Speed</span>
+                        <span class="tech-tag">SEO-Ready</span>
+                        <span class="tech-tag">Animations</span>
+                    </div>
+
+                    <!-- AI Platforms sub-section -->
+                    <div style="border-top:1px solid var(--border-subtle);padding-top:20px;margin-bottom:24px;">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.14);">
+                                <i class="fa-solid fa-brain text-xs" style="color:#22c55e;"></i>
+                            </div>
+                            <p class="text-xs font-bold uppercase tracking-widest" style="color:#22c55e;">Includes AI Platforms</p>
+                        </div>
+                        <div class="flex flex-wrap gap-x-6 gap-y-2">
+                            <div class="feature-line"><p class="text-xs" style="color:var(--text-body);">AI Model Integration</p></div>
+                            <div class="feature-line"><p class="text-xs" style="color:var(--text-body);">Deep Learning Dashboards</p></div>
+                            <div class="feature-line"><p class="text-xs" style="color:var(--text-body);">Intelligent Automation</p></div>
+                            <div class="feature-line"><p class="text-xs" style="color:var(--text-body);">Gemini / GPT Integration</p></div>
+                        </div>
+                    </div>
+
+                    <a href="services.html" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide" style="color:var(--accent-light);">
+                        Explore service <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+
+
+                <!-- Wide bottom card -->
+                <div class="reveal reveal-d3 bento-card span-3" style="padding:32px 40px;">
+                    <div class="grid sm:grid-cols-4 gap-8 items-center">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest mb-3 font-semibold" style="color:var(--text-muted);">Every project includes</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.12);">
+                                <i class="fa-solid fa-code text-[10px]" style="color:var(--accent-light);"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-white">Clean Code</p>
+                                <p class="text-[10px]" style="color:var(--text-muted);">Optimised &amp; documented</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.12);">
+                                <i class="fa-solid fa-mobile-screen text-[10px]" style="color:var(--accent-warm);"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-white">Fully Responsive</p>
+                                <p class="text-[10px]" style="color:var(--text-muted);">All devices &amp; screens</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.12);">
+                                <i class="fa-solid fa-headset text-[10px]" style="color:#22c55e;"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-white">24/7 Support</p>
+                                <p class="text-[10px]" style="color:var(--text-muted);">Post-launch assistance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== SELECTED WORK ==================== -->
+    <section class="section-bg relative py-40 sm:py-52 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/45AD7B96-4262-40E0-B159-9D553D96418F.GIF" alt="" data-parallax="0.2">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 mb-20">
+                <div>
+                    <span class="reveal section-label">Portfolio</span>
+                    <h2 class="reveal reveal-d1 section-heading text-5xl sm:text-6xl md:text-[4.5rem]">Selected work.</h2>
+                </div>
+                <div class="reveal reveal-d2 flex-shrink-0">
+                    <a href="work.html" class="btn-secondary text-sm">
+                        <span>View All Work</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="reveal portfolio-card">
+                    <div style="aspect-ratio:3/4;" class="overflow-hidden">
+                        <img src="images/Manfete/Manhunt.jpg" alt="Manhunt poster" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <p class="text-white font-bold text-lg" style="font-family:'Outfit',sans-serif;">Manhunt</p>
+                        <p class="text-[10px] mt-1.5 uppercase tracking-wider" style="color:rgba(255,255,255,0.45);">Manfete 2025 · Event Poster</p>
+                    </div>
+                </div>
+                <div class="reveal reveal-d1 portfolio-card">
+                    <div style="aspect-ratio:3/4;" class="overflow-hidden">
+                        <img src="images/Manfete/Queen.jpg" alt="Queen poster" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <p class="text-white font-bold text-lg" style="font-family:'Outfit',sans-serif;">Queen</p>
+                        <p class="text-[10px] mt-1.5 uppercase tracking-wider" style="color:rgba(255,255,255,0.45);">Manfete 2025 · Event Poster</p>
+                    </div>
+                </div>
+                <div class="reveal reveal-d2 portfolio-card">
+                    <div style="aspect-ratio:3/4;" class="overflow-hidden">
+                        <img src="images/Manfete/Esports.jpg" alt="Esports poster" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <p class="text-white font-bold text-lg" style="font-family:'Outfit',sans-serif;">Esports</p>
+                        <p class="text-[10px] mt-1.5 uppercase tracking-wider" style="color:rgba(255,255,255,0.45);">Manfete 2025 · Event Poster</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== PROCESS ==================== -->
+    <section class="section-bg relative py-36 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/DAE0FC17-C575-43D9-847F-8165824008CD.GIF" alt="" data-parallax="0.35">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="text-center mb-20">
+                <span class="reveal section-label" style="justify-content:center;">How It Works</span>
+                <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mt-2">Our process.</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="reveal glass-card p-8 text-center group">
+                    <div class="process-num">01</div>
+                    <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">Discovery</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">We understand your goals, users, and vision before a single pixel is placed.</p>
+                </div>
+                <div class="reveal reveal-d1 glass-card p-8 text-center group">
+                    <div class="process-num">02</div>
+                    <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">Design</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">Premium UI crafted from scratch — tailored to your brand identity and audience.</p>
+                </div>
+                <div class="reveal reveal-d2 glass-card p-8 text-center group">
+                    <div class="process-num">03</div>
+                    <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">Build</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">High-performance development with modern tools, animations, and AI integration.</p>
+                </div>
+                <div class="reveal reveal-d3 glass-card p-8 text-center group">
+                    <div class="process-num">04</div>
+                    <h4 class="text-white font-bold mb-2 text-base" style="font-family:'Outfit',sans-serif;">Launch</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">Deployed, tested, and handed over with documentation and ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== WHY ARTORYX ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:700px;height:700px;background:radial-gradient(circle,rgba(124,92,252,0.07),transparent 70%);top:50%;left:-200px;transform:translateY(-50%);filter:blur(110px);animation:orbFloat2 26s ease-in-out infinite;"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="text-center mb-20">
+                <span class="reveal section-label" style="justify-content:center;">Why Choose Us</span>
+                <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mt-2">
+                    Why ArtoryX, not<br><span class="gradient-text">the rest?</span>
+                </h2>
+                <p class="reveal reveal-d2 mt-6 mx-auto max-w-2xl section-body text-lg">
+                    While other agencies use templates and outsource work, we build everything in-house — with premium craftsmanship and AI capabilities that no local agency offers.
+                </p>
+            </div>
+            <div class="reveal reveal-d1 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Card 1 -->
+                <div class="why-card">
+                    <div class="icon-box mb-7"><i class="fa-solid fa-rocket"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-3" style="font-family:'Outfit',sans-serif;">Premium — Not Templates</h3>
+                    <p class="text-sm leading-relaxed mb-6" style="color:var(--text-body);">Every website we build is 100% custom-coded from scratch. No WordPress, no Wix, no page builders. Pure craftsmanship.</p>
+                    <div class="space-y-2">
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Custom-coded, not templated</span></div>
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Pixel-perfect on all devices</span></div>
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Blazing-fast load speeds</span></div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="why-card" style="background:linear-gradient(135deg,rgba(124,92,252,0.06),rgba(124,92,252,0.02),transparent);border-color:rgba(124,92,252,0.18);">
+                    <div class="flex items-center justify-between mb-7">
+                        <div class="icon-box" style="background:rgba(124,92,252,0.12);border-color:rgba(124,92,252,0.2);">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.2);color:var(--accent-light);">Exclusive</span>
+                    </div>
+                    <h3 class="text-white font-bold text-lg mb-3" style="font-family:'Outfit',sans-serif;">AI & Deep Learning Ready</h3>
+                    <p class="text-sm leading-relaxed mb-6" style="color:var(--text-body);">We are the only studio in Manipur capable of integrating GPT, Gemini, and custom AI/ML models directly into your platforms.</p>
+                    <div class="space-y-2">
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>GPT & Gemini integration</span></div>
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Custom deep learning models</span></div>
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Intelligent automation buildouts</span></div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="why-card">
+                    <div class="icon-box mb-7" style="background:rgba(34,197,94,0.07);border-color:rgba(34,197,94,0.12);color:#22c55e;">
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-lg mb-3" style="font-family:'Outfit',sans-serif;">Local Roots, Global Standards</h3>
+                    <p class="text-sm leading-relaxed mb-6" style="color:var(--text-body);">Based in Imphal, Manipur — we understand local businesses and deliver MNC-grade digital products at startup-friendly prices.</p>
+                    <div class="space-y-2">
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Imphal-based, always reachable</span></div>
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>Affordable Manipur pricing</span></div>
+                        <div class="why-check"><i class="fa-solid fa-check"></i> <span>MNC-quality deliverables</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== INDUSTRIES WE SERVE ==================== -->
+    <section class="section-bg relative py-36 sm:py-48 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/DAE0FC17-C575-43D9-847F-8165824008CD.GIF" alt="" data-parallax="0.1">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="text-center mb-16">
+                <span class="reveal section-label" style="justify-content:center;">Industries</span>
+                <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mt-2">Who we work with.</h2>
+                <p class="reveal reveal-d2 mt-5 mx-auto max-w-xl section-body">
+                    From Imphal startups to government institutions — we serve every industry that needs a digital edge.
+                </p>
+            </div>
+            <div class="reveal reveal-d2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <p class="industry-name">Education &amp; Colleges</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-calendar-star"></i></div>
+                    <p class="industry-name">Events &amp; Culture</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <p class="industry-name">Restaurants &amp; Food</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-shirt"></i></div>
+                    <p class="industry-name">Fashion &amp; Retail</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+                    <p class="industry-name">NGOs &amp; Non-Profits</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-hospital"></i></div>
+                    <p class="industry-name">Healthcare &amp; Clinics</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <p class="industry-name">Startups &amp; Tech</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon"><i class="fa-solid fa-building"></i></div>
+                    <p class="industry-name">Real Estate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== TECH STACK ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(124,92,252,0.06),transparent 70%);top:50%;right:-150px;transform:translateY(-50%);filter:blur(100px);animation:orbFloat1 22s ease-in-out infinite;"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="reveal section-label">Our Stack</span>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-[4rem] mb-6">
+                        Technologies<br>we master.
+                    </h2>
+                    <div class="reveal reveal-d1 line-accent mb-8"></div>
+                    <p class="reveal reveal-d2 section-body mb-6">
+                        We don't lock you into one ecosystem. We pick the best technologies for your specific project — from lightning-fast static sites to full-stack AI platforms deployed on the cloud.
+                    </p>
+                    <p class="reveal reveal-d3 section-body">
+                        Our team is proficient in modern frontend frameworks, backend systems, cloud infrastructure, and machine learning toolkits — a skill set unmatched by any other studio in Manipur.
+                    </p>
+                </div>
+
+                <div class="reveal reveal-d2 flex flex-wrap gap-3">
+                    <span class="tech-stack-pill"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+                    <span class="tech-stack-pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+                    <span class="tech-stack-pill"><i class="fa-brands fa-react"></i> React.js</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-n"></i> Next.js</span>
+                    <span class="tech-stack-pill"><i class="fa-brands fa-python"></i> Python</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-brain"></i> TensorFlow / PyTorch</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-robot"></i> OpenAI / Gemini API</span>
+                    <span class="tech-stack-pill"><i class="fa-brands fa-aws"></i> AWS</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-cloud"></i> Vercel / Netlify</span>
+                    <span class="tech-stack-pill"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-database"></i> MySQL / Firebase</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-pen-ruler"></i> Figma</span>
+                    <span class="tech-stack-pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                    <span class="tech-stack-pill"><i class="fa-solid fa-server"></i> REST APIs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== MOTION SHOWCASE ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:800px;height:800px;background:radial-gradient(circle,rgba(124,92,252,0.06),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(130px);animation:orbFloat3 24s ease-in-out infinite;pointer-events:none;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="text-center mb-16">
+                <span class="reveal section-label" style="justify-content:center;">Motion & Visual Design</span>
+                <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mt-2">
+                    We craft experiences<br><span class="gradient-text">that move.</span>
+                </h2>
+                <p class="reveal reveal-d2 mt-6 mx-auto max-w-2xl section-body">
+                    Beyond static design — our studio produces animated visuals, motion graphics, and immersive digital art for brands that want to stand out.
+                </p>
+            </div>
+
+            <!-- GIF Showcase Grid — explicit CSS grid -->
+            <div class="reveal reveal-d1" style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:260px 260px;gap:16px;">
+
+                <!-- Card A: tall left (spans 2 rows) -->
+                <div class="gif-showcase-card" style="grid-column:1;grid-row:1/3;">
+                    <div style="height:100%;overflow:hidden;position:relative;">
+                        <img src="background/071D9F47-F957-4987-881D-A92086501604.GIF" alt="Motion Design" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s cubic-bezier(0.22,1,0.36,1);">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.93) 0%,rgba(3,3,5,0.15) 55%,transparent 100%);"></div>
+                        <div style="position:absolute;bottom:0;left:0;right:0;padding:22px 24px;">
+                            <p style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-light);font-weight:700;margin-bottom:8px;">Motion Graphics</p>
+                            <p style="font-size:1.05rem;font-weight:800;color:#fff;font-family:'Outfit',sans-serif;line-height:1.3;margin-bottom:6px;">Dynamic Visual Identity</p>
+                            <p style="font-size:0.75rem;color:rgba(255,255,255,0.45);">Abstract animation crafted for brand presence</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card B: top center -->
+                <div class="gif-showcase-card" style="grid-column:2;grid-row:1;">
+                    <div style="height:100%;overflow:hidden;position:relative;">
+                        <img src="background/9EB4563D-4A4B-42D3-A9F5-13EE2525C58A.GIF" alt="Particle Systems" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s cubic-bezier(0.22,1,0.36,1);">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.88),transparent 65%);"></div>
+                        <div class="card-caption">Particle Systems</div>
+                    </div>
+                </div>
+
+                <!-- Card C: top right -->
+                <div class="gif-showcase-card" style="grid-column:3;grid-row:1;">
+                    <div style="height:100%;overflow:hidden;position:relative;">
+                        <img src="background/AE5CAE9F-FFB5-4D61-B422-66D6CB87D11C.GIF" alt="Abstract Art" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s cubic-bezier(0.22,1,0.36,1);">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.88),transparent 65%);"></div>
+                        <div class="card-caption">Abstract Motion Art</div>
+                    </div>
+                </div>
+
+                <!-- Card D: bottom center -->
+                <div class="gif-showcase-card" style="grid-column:2;grid-row:2;">
+                    <div style="height:100%;overflow:hidden;position:relative;">
+                        <img src="background/EF7637C8-E3C8-452C-B4DA-6255461B97E0.GIF" alt="UI Motion" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s cubic-bezier(0.22,1,0.36,1);">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.88),transparent 65%);"></div>
+                        <div class="card-caption">UI Microanimations</div>
+                    </div>
+                </div>
+
+                <!-- Card E: bottom right -->
+                <div class="gif-showcase-card" style="grid-column:3;grid-row:2;">
+                    <div style="height:100%;overflow:hidden;position:relative;">
+                        <img src="background/F890D9CE-7C7C-481C-A59C-739890B35144.GIF" alt="Digital Environments" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.3s cubic-bezier(0.22,1,0.36,1);">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.88),transparent 65%);"></div>
+                        <div class="card-caption">Digital Environments</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Wide bottom card -->
+            <div class="reveal reveal-d2 gif-showcase-card" style="margin-top:16px;">
+                <div style="height:220px;overflow:hidden;position:relative;">
+                    <img src="background/3CBF847D-19B7-4352-9B1E-9F3A8A1F3408.GIF" alt="Brand Animation" style="width:100%;height:220px;object-fit:cover;object-position:center 40%;display:block;transition:transform 1.3s cubic-bezier(0.22,1,0.36,1);">
+                    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.92) 0%,rgba(3,3,5,0.35) 50%,transparent 100%);"></div>
+                    <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                        <div>
+                            <p style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent-light);font-weight:700;margin-bottom:6px;">Brand Storytelling</p>
+                            <p style="font-size:1.1rem;font-weight:800;color:#fff;font-family:'Outfit',sans-serif;">Cinematic Brand Animations</p>
+                        </div>
+                        <a href="contact.html" class="btn-secondary" style="font-size:0.8rem;padding:12px 24px;flex-shrink:0;">
+                            Request a Demo <i class="fa-solid fa-arrow-right" style="font-size:0.72rem;margin-left:6px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="section-bg relative py-36 sm:py-48 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/6E3DA909-E63C-4C7E-8E5C-BD524ED3A97F.GIF" alt="" data-parallax="0.12">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="text-center mb-16">
+                <span class="reveal section-label" style="justify-content:center;">Client Reviews</span>
+                <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mt-2">
+                    What clients say.
+                </h2>
+                <p class="reveal reveal-d2 mt-5 mx-auto max-w-xl section-body">
+                    Businesses across Manipur trust ArtoryX to build their digital presence.
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="reveal testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-quote">"ArtoryX delivered our college fest website in under a week. The design was stunning — nothing like anything we had seen from local agencies before. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7c5cfc,#a78bfa);">SM</div>
+                        <div>
+                            <p class="testimonial-name">Surjakanta M.</p>
+                            <p class="testimonial-role">Event Organizer · Imphal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-d1 testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-quote">"We got a complete brand identity — logo, color palette, and business cards — all done beautifully. The pricing is very fair for Manipur standards. Great studio."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">LT</div>
+                        <div>
+                            <p class="testimonial-name">Lamnganbi T.</p>
+                            <p class="testimonial-role">Fashion Business · Imphal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-d2 testimonial-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-quote">"Our restaurant's online presence was zero before ArtoryX. Now we have a stunning website, a digital menu, and Google traffic. The ROI has been incredible — best investment we made for the business."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background:linear-gradient(135deg,#f97316,#fb923c);">PH</div>
+                        <div>
+                            <p class="testimonial-name">Priyanka H.</p>
+                            <p class="testimonial-role">Restaurant Owner · Imphal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:650px;height:650px;background:radial-gradient(circle,rgba(124,92,252,0.06),transparent 70%);bottom:-100px;left:-150px;filter:blur(110px);animation:orbFloat2 30s ease-in-out infinite;"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+                <div>
+                    <span class="reveal section-label">FAQ</span>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-[4rem] mb-6">
+                        Frequently asked<br><span class="gradient-text">questions.</span>
+                    </h2>
+                    <div class="reveal reveal-d1 line-accent mb-8"></div>
+                    <p class="reveal reveal-d2 section-body mb-10">
+                        Can't find your answer? Reach out via WhatsApp or email — we usually respond within a few hours.
+                    </p>
+                    <div class="reveal reveal-d3 flex flex-wrap gap-4">
+                        <a href="https://wa.me/918837067635" target="_blank" class="btn-primary">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WhatsApp Us</span>
+                        </a>
+                        <a href="contact.html" class="btn-secondary">
+                            <span>Contact Page</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-d2 faq-container">
+                    <div class="faq-item open">
+                        <button class="faq-question" id="faq-btn-1" aria-expanded="true" aria-controls="faq-ans-1">
+                            <span>How much does a website cost?</span>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+                            <div class="faq-answer-inner">Our web packages start at <strong style="color:#fff;">₹2,999</strong> for a basic static site and go up depending on complexity. E-commerce, AI integrations, and full-stack apps are quoted separately. We always provide a free estimate after a quick call.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-ans-2">
+                            <span>How long does a project take?</span>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+                            <div class="faq-answer-inner">A standard static website typically takes <strong style="color:#fff;">1–2 weeks</strong>. Graphic design projects are delivered in 3–7 days. Complex AI platforms or full-stack apps take 3–6 weeks. We'll give you a clear timeline before we start.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-btn-3" aria-expanded="false" aria-controls="faq-ans-3">
+                            <span>Do you serve clients outside Manipur?</span>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+                            <div class="faq-answer-inner">Yes! While we are proudly based in <strong style="color:#fff;">Imphal, Manipur</strong>, we work with clients across Northeast India and globally. All communication and delivery is handled online, making geography a non-issue.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-btn-4" aria-expanded="false" aria-controls="faq-ans-4">
+                            <span>What do I need to get started?</span>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+                            <div class="faq-answer-inner">Just reach out via the contact page or WhatsApp! We'll schedule a free discovery call to understand your needs, then send a scope and pricing proposal. No upfront payment until you're happy with the plan.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-btn-5" aria-expanded="false" aria-controls="faq-ans-5">
+                            <span>Do you provide post-launch support?</span>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+                            <div class="faq-answer-inner">Yes — every project includes a <strong style="color:#fff;">30-day post-launch support window</strong> at no extra charge. Ongoing maintenance plans are also available for a monthly retainer so your site stays updated, secure, and running at peak performance.</div>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" id="faq-btn-6" aria-expanded="false" aria-controls="faq-ans-6">
+                            <span>Do you build mobile apps?</span>
+                            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                        </button>
+                        <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6">
+                            <div class="faq-answer-inner">Currently we specialise in <strong style="color:#fff;">web platforms and progressive web apps (PWAs)</strong> — which work beautifully on mobile. Native iOS/Android apps are on our roadmap. Contact us and we'll find the best solution for your needs.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== LOCATION STRIP ==================== -->
+    <section class="relative py-28 overflow-hidden">
+        <div class="gradient-orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(124,92,252,0.06),transparent 70%);top:50%;right:-100px;transform:translateY(-50%);filter:blur(100px);"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="reveal section-label">Find Us</span>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl mb-5">
+                        Based in<br><span class="gradient-text">Imphal, Manipur.</span>
+                    </h2>
+                    <p class="reveal reveal-d2 section-body max-w-md mb-8">
+                        We are a homegrown Manipur digital studio. Reach us anytime — we're always just a message away.
+                    </p>
+                    <div class="reveal reveal-d3 flex flex-wrap gap-4">
+                        <a href="https://wa.me/918837067635" target="_blank" class="btn-primary">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                        <a href="mailto:theartoryproject@gmail.com" class="btn-secondary">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                            <span>Send Email</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-d2 location-card">
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                        <div>
+                            <p class="contact-detail-label">Our Location</p>
+                            <p class="contact-detail-value">Imphal, Manipur — 795001, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <p class="contact-detail-label">WhatsApp</p>
+                            <a href="https://wa.me/918837067635" target="_blank" class="contact-detail-value hover:text-purple-300 transition-colors">+91 88370 67635</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <p class="contact-detail-label">Email</p>
+                            <a href="mailto:theartoryproject@gmail.com" class="contact-detail-value hover:text-purple-300 transition-colors">theartoryproject@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div>
+                            <p class="contact-detail-label">Instagram</p>
+                            <a href="https://instagram.com/artory" target="_blank" class="contact-detail-value hover:text-purple-300 transition-colors">@artory</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-row">
+                        <div class="contact-detail-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <p class="contact-detail-label">Response Time</p>
+                            <p class="contact-detail-value">Usually within a few hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gradient-divider"></div>
+
+
+    <!-- ==================== CTA ==================== -->
+    <section class="section-bg relative py-56 sm:py-72 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/76A390A8-7FFB-4A13-8278-297BE89A3D2F.GIF" alt="" data-parallax="0.3">
+        </div>
+        <div class="bg-overlay bg-overlay-vignette"></div>
+        <div class="bg-overlay bg-overlay-hero"></div>
+        <div class="gradient-orb" style="width:900px;height:900px;background:radial-gradient(circle,rgba(139,92,246,0.09),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(140px);animation:orbFloat3 18s ease-in-out infinite;"></div>
+        <!-- GIF floating orbs -->
+
+        <div class="relative z-10 max-w-3xl mx-auto px-6 lg:px-14 text-center">
+            <span class="reveal section-label" style="justify-content:center;margin-bottom:28px;">
+                theartoryproject@gmail.com
+            </span>
+            <h2 class="reveal reveal-d1 section-heading mb-8 mt-2" style="font-size:clamp(3rem,6vw,5.5rem);">
+                Ready to build<br>
+                <span class="gradient-text-hero">something great?</span>
+            </h2>
+            <p class="reveal reveal-d2 mx-auto mb-16 max-w-lg leading-relaxed text-lg" style="color:var(--text-body);">
+                Any website. Any scale. With or without AI. Let's build your next digital product together.
+            </p>
+            <div class="reveal reveal-d3 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="contact.html" class="btn-primary text-base px-12 py-5">
+                    <span>Get in Touch</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="mailto:theartoryproject@gmail.com" class="btn-secondary text-base px-10 py-[19px]">
+                    <i class="fa-solid fa-envelope text-sm"></i>
+                    <span>Email Us Directly</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ==================== AFFORDABLE PRICING ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden" id="pricing">
+        <div class="gradient-orb" style="width:700px;height:700px;background:radial-gradient(circle,rgba(124,92,252,0.07),transparent 70%);top:-100px;right:-200px;filter:blur(120px);animation:orbFloat1 28s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+
+            <!-- Heading -->
+            <div class="text-center mb-20">
+                <span class="reveal section-label" style="justify-content:center;">Pricing</span>
+                <h2 class="reveal reveal-d1 section-heading mt-4" style="font-size:clamp(2.6rem,5vw,5rem);">
+                    MNC quality.<br><span class="gradient-text">Startup prices.</span>
+                </h2>
+                <p class="reveal reveal-d2 mt-6 mx-auto max-w-xl text-lg leading-relaxed" style="color:var(--text-body);">
+                    We believe great digital work should be accessible — not locked behind agency price tags. Every project, priced fairly.
+                </p>
+            </div>
+
+            <!-- Price Cards -->
+            <div class="reveal reveal-d1 grid md:grid-cols-3 gap-6">
+
+                <!-- Web -->
+                <div class="glass-card p-10 flex flex-col">
+                    <div class="icon-box mb-7">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-[0.22em] font-bold mb-3" style="color:var(--accent-light);">Web Solutions</p>
+                    <div class="flex items-baseline gap-2 mb-3">
+                        <span style="font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;letter-spacing:-0.06em;color:#fff;line-height:1;">₹2,999</span>
+                        <span class="text-sm" style="color:var(--text-muted);">starting</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-8" style="color:var(--text-body);">
+                        Custom static websites, landing pages, multi-page sites with animations. Fast, responsive, GitHub-hosted.
+                    </p>
+                    <ul class="space-y-3 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Responsive design</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>SEO optimised</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Delivered in 1–2 weeks</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Free revisions included</li>
+                    </ul>
+                    <a href="contact.html" class="btn-secondary text-sm px-7 py-4 mt-auto">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Design — featured / highlighted -->
+                <div class="glass-card p-10 flex flex-col" style="border-color:rgba(124,92,252,0.3);background:rgba(124,92,252,0.04);">
+                    <div class="flex items-center justify-between mb-7">
+                        <div class="icon-box" style="background:rgba(124,92,252,0.12);border-color:rgba(124,92,252,0.2);">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:rgba(124,92,252,0.12);border:1px solid rgba(124,92,252,0.2);color:var(--accent-light);">Most Popular</span>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-[0.22em] font-bold mb-3" style="color:var(--accent-light);">Graphic Design</p>
+                    <div class="flex items-baseline gap-2 mb-3">
+                        <span style="font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;letter-spacing:-0.06em;color:#fff;line-height:1;">₹499</span>
+                        <span class="text-sm" style="color:var(--text-muted);">per design</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-8" style="color:var(--text-body);">
+                        Posters, banners, brand identity, social media creatives, event campaigns — premium visual design.
+                    </p>
+                    <ul class="space-y-3 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Print & digital ready</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Source files provided</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Delivered in 3–7 days</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Unlimited revisions</li>
+                    </ul>
+                    <a href="contact.html" class="btn-primary text-sm px-7 py-4 mt-auto">
+                        <span>Start Designing</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- AI Platform -->
+                <div class="glass-card p-10 flex flex-col">
+                    <div class="icon-box mb-7">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-[0.22em] font-bold mb-3" style="color:var(--accent-light);">AI Platform</p>
+                    <div class="flex items-baseline gap-2 mb-3">
+                        <span style="font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;letter-spacing:-0.06em;color:#fff;line-height:1;">₹14,999</span>
+                        <span class="text-sm" style="color:var(--text-muted);">starting</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-8" style="color:var(--text-body);">
+                        Custom AI-integrated platforms, deep learning tools, intelligent automation, and full-stack web apps.
+                    </p>
+                    <ul class="space-y-3 mb-10 flex-1">
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Custom AI integration</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Cloud deployment</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>3–6 week delivery</li>
+                        <li class="flex items-center gap-3 text-sm" style="color:var(--text-body);"><i class="fa-solid fa-check text-xs flex-shrink-0" style="color:var(--accent-light);"></i>Post-launch support</li>
+                    </ul>
+                    <a href="contact.html" class="btn-secondary text-sm px-7 py-4 mt-auto">
+                        <span>Get a Quote</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom note -->
+            <p class="reveal text-center text-xs mt-10" style="color:var(--text-muted);">
+                All prices are estimates. Final quote after understanding your project. <a href="contact.html" class="hover:text-white transition" style="color:var(--accent-light);">Talk to us →</a>
+            </p>
+
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer class="footer">
+        <div class="max-w-[1360px] mx-auto px-6 lg:px-14 py-20">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-14 mb-16">
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="footer-logo-lockup" aria-label="ArtoryX Home">
+                        <img src="images/Artorylogo.png" alt="" class="footer-logo-img" onerror="this.style.display='none';">
+                        <span class="gradient-text-logo" style="font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-0.04em;">ArtoryX</span>
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-sm mb-7" style="color:var(--text-muted);">
+                        Premium digital studio building custom websites, AI platforms, and graphic design for brands that demand excellence.
+                    </p>
+                    <div class="line-accent"></div>
+                </div>
+                <div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.28em] mb-7" style="color:var(--text-muted);">Navigation</p>
+                    <div class="space-y-4">
+                        <a href="index.html" class="footer-link block">Home</a>
+                        <a href="services.html" class="footer-link block">Services</a>
+                        <a href="work.html" class="footer-link block">Work</a>
+                        <a href="contact.html" class="footer-link block">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.28em] mb-7" style="color:var(--text-muted);">Connect</p>
+                    <div class="space-y-4">
+                        <a href="https://instagram.com/artory" target="_blank" class="footer-link flex items-center gap-3"><i class="fa-brands fa-instagram w-4"></i> Instagram</a>
+                        <a href="https://wa.me/918837067635" target="_blank" class="footer-link flex items-center gap-3"><i class="fa-brands fa-whatsapp w-4"></i> WhatsApp</a>
+                        <a href="mailto:theartoryproject@gmail.com" class="footer-link flex items-center gap-3"><i class="fa-solid fa-envelope w-4"></i> Email Us</a>
+                        <a href="https://shakespearechabungbam.online" target="_blank" class="footer-link flex items-center gap-3"><i class="fa-solid fa-globe w-4"></i> Founder</a>
+                    </div>
+                </div>
+            </div>
+            <div class="glow-line mb-10"></div>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs" style="color:var(--text-muted);">© 2026 ArtoryX Studio. All rights reserved.</p>
+                <p class="text-xs" style="color:var(--text-muted);">Founded by <a href="https://shakespearechabungbam.online" target="_blank" class="hover:text-white transition">Shakespeare Chabungbam</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu (placed last to avoid stacking context issues) -->
+    <div id="mobile-menu" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#050507;z-index:99999;display:none;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;opacity:0;transform:translateY(-14px) scale(0.98);transition:opacity 0.42s cubic-bezier(0.4,0,0.2,1),transform 0.42s cubic-bezier(0.4,0,0.2,1);">
+        <div style="display:flex;flex-direction:column;align-items:center;width:100%;max-width:400px;padding:0 28px;">
+            <a href="index.html" style="font-size:2.5rem;font-weight:700;color:#ffffff;text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Home</a>
+            <a href="services.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Services</a>
+            <a href="work.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Work</a>
+            <a href="contact.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;display:block;">Contact</a>
+        </div>
+        <a href="contact.html" style="margin-top:48px;display:inline-block;background:#7c3bed;color:#fff;text-decoration:none;padding:14px 40px;border-radius:50px;font-size:0.9rem;font-weight:600;letter-spacing:0.02em;">Get in Touch</a>
+        <p style="margin-top:20px;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Manipur's Premium Digital Studio</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

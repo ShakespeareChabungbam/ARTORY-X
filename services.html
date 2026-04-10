@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | ArtoryX — Premium Digital Studio</title>
+    <meta name="description" content="ArtoryX offers premium web development, AI platforms, and graphic design services. Fast static websites, brand identity, and digital art.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Services | ArtoryX">
+    <meta property="og:description" content="Web solutions, graphic design, and AI platforms built to the highest standard.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{fontFamily:{outfit:['Outfit','sans-serif'],inter:['Inter','sans-serif']}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ── PAGE LOADER ── -->
+    <div id="page-loader">
+        <div class="loader-gif-wrap">
+            <img src="background/40FEC681-49C7-4A5F-B6D1-2D3E31E60953.GIF" class="loader-main-gif" alt="">
+        </div>
+        <div class="loader-logo-row">
+            <img src="images/Artorylogo.png" class="loader-logo-img-el" alt="" onerror="this.style.display='none'">
+            <span class="loader-wordmark">ArtoryX</span>
+        </div>
+        <div class="loader-progress-track"><div class="loader-progress-fill"></div></div>
+        <p class="loader-tagline">What We Build</p>
+    </div>
+
+    <div id="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="cursor-glow hidden lg:block"></div>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <nav id="navbar" class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo-lockup" id="nav-logo-link" aria-label="ArtoryX Home">
+                <img src="images/Artorylogo.png" alt="" class="nav-logo-img" onerror="this.style.display='none';">
+                <span class="nav-logo gradient-text-logo">ArtoryX</span>
+            </a>
+            <div class="nav-links hidden lg:flex nav-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="work.html" class="nav-link">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hidden lg:block"><a href="contact.html" class="btn-nav">Get in Touch</a></div>
+            <button id="menu-toggle" class="hamburger-btn lg:hidden" aria-label="Menu">
+                <span class="hb-bar hb-top"></span>
+                <span class="hb-bar hb-bot"></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- ==================== HERO ==================== -->
+    <section class="section-bg relative overflow-hidden" style="padding-top:180px;padding-bottom:120px;">
+        <div class="bg-media">
+            <img src="background/DF075031-D309-4C2D-BF06-28FC0398563A.GIF" alt="" data-parallax="0.2">
+        </div>
+        <div class="bg-overlay bg-overlay-hero"></div>
+        <div class="grid-pattern"></div>
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <span class="reveal section-label">Our Services</span>
+            <h1 class="reveal reveal-d1 section-heading mb-6" style="font-size:clamp(3rem,6vw,6rem);max-width:680px;">
+                What we build.
+            </h1>
+            <p class="reveal reveal-d2 section-body text-lg max-w-xl mb-12">
+                Three core disciplines. One studio. We deliver web solutions, graphic design, and AI-powered platforms at the highest standard.
+            </p>
+            <!-- Service quick-jump pills -->
+            <div class="reveal reveal-d3 flex flex-wrap gap-3">
+                <a href="#web" class="pill-badge hover:border-[rgba(139,92,246,0.3)] hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-globe text-[10px]" style="color:var(--accent-light);"></i>
+                    Web Solutions
+                </a>
+                <a href="#design" class="pill-badge hover:border-[rgba(245,158,11,0.3)] hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-pen-nib text-[10px]" style="color:var(--accent-warm);"></i>
+                    Graphic Design
+                </a>
+                <a href="#ai" class="pill-badge hover:border-[rgba(34,197,94,0.3)] hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-brain text-[10px]" style="color:#22c55e;"></i>
+                    AI Platforms
+                </a>
+                <a href="#marketing" class="pill-badge hover:border-[rgba(59,130,246,0.3)] hover:text-white transition-all duration-300">
+                    <i class="fa-solid fa-bullhorn text-[10px]" style="color:#3b82f6;"></i>
+                    Digital Marketing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <!-- ==================== WEB SOLUTIONS ==================== -->
+    <section id="web" class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,0.07),transparent 70%);top:-100px;right:-150px;filter:blur(100px);animation:orbFloat1 24s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+                <div>
+                    <div class="reveal flex items-center gap-4 mb-8">
+                        <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                        <span class="section-label mb-0">Service 01</span>
+                    </div>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mb-6">
+                        Web Solutions.
+                    </h2>
+                    <div class="reveal reveal-d1 line-accent mb-8"></div>
+                    <p class="reveal reveal-d2 section-body mb-10 max-w-lg">
+                        We build lightning-fast, responsive websites with modern technologies. Every project is crafted for performance, SEO, and seamless user experience across all devices and screen sizes.
+                    </p>
+                    <div class="reveal reveal-d3">
+                        <a href="contact.html" class="btn-primary">
+                            <span>Get a Quote</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="reveal glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.12);">
+                                <i class="fa-solid fa-mobile-screen text-sm" style="color:var(--accent-light);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Responsive Design</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Flawless experience across all devices — mobile, tablet, and desktop.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d1 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.12);">
+                                <i class="fa-solid fa-bolt text-sm" style="color:var(--accent-light);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Performance Optimized</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Sub-second load times with clean code, lazy loading, and minimal dependencies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d2 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.12);">
+                                <i class="fa-solid fa-wand-magic-sparkles text-sm" style="color:var(--accent-light);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Modern Interactions</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Smooth animations, scroll effects, and micro-interactions that feel premium.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d3 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.12);">
+                                <i class="fa-solid fa-magnifying-glass-chart text-sm" style="color:var(--accent-light);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">SEO &amp; Analytics</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Semantic HTML, structured data, and meta optimization for search visibility.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d4 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.12);">
+                                <i class="fa-solid fa-cloud-arrow-up text-sm" style="color:var(--accent-light);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Deployment &amp; Hosting</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Custom domains, SSL, and deployment to AWS, Netlify, or Vercel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <!-- ==================== GRAPHIC DESIGN ==================== -->
+    <section id="design" class="section-bg relative py-36 sm:py-48 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/3CBF847D-19B7-4352-9B1E-9F3A8A1F3408.GIF" alt="" data-parallax="0.15">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+                <div class="space-y-4 order-2 lg:order-1">
+                    <div class="reveal glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.12);">
+                                <i class="fa-solid fa-fingerprint text-sm" style="color:var(--accent-warm);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Brand Identity &amp; Logos</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Complete brand systems — logo marks, color palettes, and typography guidelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d1 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.12);">
+                                <i class="fa-solid fa-film text-sm" style="color:var(--accent-warm);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Event Posters &amp; Campaigns</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Visual campaigns that drive engagement, attendance, and brand recognition.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d2 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.12);">
+                                <i class="fa-solid fa-hashtag text-sm" style="color:var(--accent-warm);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Social Media Creatives</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Posts, stories, and banners tailored for every platform and audience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d3 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.12);">
+                                <i class="fa-solid fa-paintbrush text-sm" style="color:var(--accent-warm);"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Digital Art &amp; Illustrations</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Custom artwork, illustrations, and creative concepts for any medium.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="reveal flex items-center gap-4 mb-8">
+                        <div class="icon-box" style="background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.12);color:#f59e0b;">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <span class="section-label mb-0">Service 02</span>
+                    </div>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mb-6">
+                        Graphic Design.
+                    </h2>
+                    <div class="reveal reveal-d1 line-accent mb-8" style="background:linear-gradient(90deg,var(--accent-warm),var(--accent));"></div>
+                    <p class="reveal reveal-d2 section-body mb-10 max-w-lg">
+                        Premium visual design that makes brands unforgettable. We combine creative strategy with meticulous execution — from concept to delivery.
+                    </p>
+                    <div class="reveal reveal-d3">
+                        <a href="contact.html" class="btn-primary">
+                            <span>Get a Quote</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+    <div class="divider"></div>
+
+
+    <!-- ==================== AI PLATFORMS ==================== -->
+    <section id="ai" class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:700px;height:700px;background:radial-gradient(circle,rgba(34,197,94,0.06),transparent 70%);top:50%;left:-200px;transform:translateY(-50%);filter:blur(100px);animation:orbFloat2 26s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+                <div>
+                    <div class="reveal flex items-center gap-4 mb-8">
+                        <div class="icon-box" style="background:rgba(34,197,94,0.06);border-color:rgba(34,197,94,0.1);color:#22c55e;">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <span class="section-label mb-0">Service 03</span>
+                    </div>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mb-6">
+                        AI-Powered<br>Platforms.
+                    </h2>
+                    <div class="reveal reveal-d1 line-accent mb-8" style="background:linear-gradient(90deg,#22c55e,var(--accent));"></div>
+                    <p class="reveal reveal-d2 section-body mb-10 max-w-lg">
+                        We build custom web applications that integrate AI and Deep Learning — from intelligent dashboards and model visualizations to fully automated data pipelines with beautiful front-ends.
+                    </p>
+                    <div class="reveal reveal-d3">
+                        <a href="contact.html" class="btn-primary">
+                            <span>Discuss Your Project</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="reveal glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.1);">
+                                <i class="fa-solid fa-robot text-sm" style="color:#22c55e;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">AI Model Integration</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Connect GPT, Gemini, or custom-trained models directly into your web interface.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d1 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.1);">
+                                <i class="fa-solid fa-chart-line text-sm" style="color:#22c55e;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Deep Learning Dashboards</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Real-time data visualization platforms for ML model outputs and analytics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d2 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.1);">
+                                <i class="fa-solid fa-gears text-sm" style="color:#22c55e;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Intelligent Automation</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Automated workflows, smart forms, and AI-driven user logic built into your platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d3 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.1);">
+                                <i class="fa-solid fa-database text-sm" style="color:#22c55e;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Custom Data Platforms</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">End-to-end platforms collecting, processing, and displaying data with intelligent insights.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <!-- ==================== DIGITAL MARKETING ==================== -->
+    <section id="marketing" class="section-bg relative py-36 sm:py-48 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/45AD7B96-4262-40E0-B159-9D553D96418F.GIF" alt="" data-parallax="0.15">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+        <div class="gradient-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,0.06),transparent 70%);top:50%;right:-150px;transform:translateY(-50%);filter:blur(100px);animation:orbFloat1 24s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+                <div>
+                    <div class="reveal flex items-center gap-4 mb-8">
+                        <div class="icon-box" style="background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.12);color:#3b82f6;">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <span class="section-label mb-0">Service 04</span>
+                    </div>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl mb-6">
+                        Digital<br>Marketing.
+                    </h2>
+                    <div class="reveal reveal-d1 line-accent mb-8" style="background:linear-gradient(90deg,#3b82f6,var(--accent));"></div>
+                    <p class="reveal reveal-d2 section-body mb-10 max-w-lg">
+                        Grow your business online with targeted digital marketing — from social media management and SEO to paid ads. We create campaigns that bring real results for Manipur businesses and beyond.
+                    </p>
+                    <div class="reveal reveal-d3">
+                        <a href="contact.html" class="btn-primary">
+                            <span>Get a Quote</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="reveal glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.12);">
+                                <i class="fa-brands fa-instagram text-sm" style="color:#3b82f6;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Social Media Marketing</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Strategy, content creation, and management for Instagram, Facebook, and beyond. Grow your following and engagement consistently.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d1 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.12);">
+                                <i class="fa-solid fa-magnifying-glass text-sm" style="color:#3b82f6;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">SEO Optimization</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Rank higher on Google with on-page SEO, keyword research, local Manipur SEO, and technical audits that drive organic traffic.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d2 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.12);">
+                                <i class="fa-brands fa-google text-sm" style="color:#3b82f6;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Google &amp; Meta Ads</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Performance-driven paid advertising on Google Search, Display, and Meta (Facebook/Instagram) — maximising ROI from your ad budget.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal reveal-d3 glass-card p-6 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.12);">
+                                <i class="fa-solid fa-pen-to-square text-sm" style="color:#3b82f6;"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1 text-sm" style="font-family:'Outfit',sans-serif;">Content Strategy</h4>
+                                <p class="text-xs leading-relaxed" style="color:var(--text-body);">Blogs, captions, ad copy, and visual content — crafted with a clear strategy to build authority and drive conversions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+    <div class="divider"></div>
+
+
+    <!-- ==================== PROCESS ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden" style="background:linear-gradient(180deg,#030305 0%,#060610 50%,#030305 100%);">
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="text-center mb-20">
+                <span class="reveal section-label" style="justify-content:center;">Process</span>
+                <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl">How we work.</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="reveal">
+                    <div class="text-7xl font-extrabold mb-5 select-none" style="font-family:'Outfit',sans-serif;color:rgba(255,255,255,0.04);">01</div>
+                    <h4 class="text-white font-semibold text-base mb-3" style="font-family:'Outfit',sans-serif;">Discover</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">We understand your goals, brand, and audience to establish a solid foundation.</p>
+                </div>
+                <div class="reveal reveal-d1">
+                    <div class="text-7xl font-extrabold mb-5 select-none" style="font-family:'Outfit',sans-serif;color:rgba(255,255,255,0.04);">02</div>
+                    <h4 class="text-white font-semibold text-base mb-3" style="font-family:'Outfit',sans-serif;">Design</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">Wireframes, mockups, and concepts — iterated until the vision is pixel-perfect.</p>
+                </div>
+                <div class="reveal reveal-d2">
+                    <div class="text-7xl font-extrabold mb-5 select-none" style="font-family:'Outfit',sans-serif;color:rgba(255,255,255,0.04);">03</div>
+                    <h4 class="text-white font-semibold text-base mb-3" style="font-family:'Outfit',sans-serif;">Develop</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">Clean, optimized code brings the design to life with responsiveness and speed.</p>
+                </div>
+                <div class="reveal reveal-d3">
+                    <div class="text-7xl font-extrabold mb-5 select-none" style="font-family:'Outfit',sans-serif;color:rgba(255,255,255,0.04);">04</div>
+                    <h4 class="text-white font-semibold text-base mb-3" style="font-family:'Outfit',sans-serif;">Launch</h4>
+                    <p class="text-sm leading-relaxed" style="color:var(--text-body);">Deploy, test, and launch — with ongoing support to keep things running.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== CTA ==================== -->
+    <section class="section-bg relative py-48 sm:py-60 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/76A390A8-7FFB-4A13-8278-297BE89A3D2F.GIF" alt="" data-parallax="0.2">
+        </div>
+        <div class="bg-overlay bg-overlay-vignette"></div>
+        <div class="bg-overlay bg-overlay-hero"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto px-6 lg:px-14 text-center">
+            <h2 class="reveal section-heading text-4xl sm:text-5xl md:text-6xl mb-7">
+                Let's make it happen.
+            </h2>
+            <p class="reveal reveal-d1 section-body text-lg mx-auto mb-12 max-w-md">
+                Tell us about your project and we'll get back to you within 24 hours.
+            </p>
+            <div class="reveal reveal-d2">
+                <a href="contact.html" class="btn-primary text-base px-12 py-5">
+                    <span>Get in Touch</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-[1360px] mx-auto px-6 lg:px-14 py-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="footer-logo-lockup" aria-label="ArtoryX Home">
+                        <img src="images/Artorylogo.png" alt="" class="footer-logo-img" onerror="this.style.display='none';">
+                        <span class="gradient-text-logo" style="font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-0.04em;">ArtoryX</span>
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-sm" style="color:var(--text-muted);">Premium web solutions and graphic design studio. Crafting digital excellence for brands that demand more.</p>
+                </div>
+                <div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.28em] mb-5" style="color:var(--text-muted);">Pages</p>
+                    <div class="space-y-4">
+                        <a href="index.html" class="footer-link block">Home</a>
+                        <a href="services.html" class="footer-link block">Services</a>
+                        <a href="work.html" class="footer-link block">Work</a>
+                        <a href="contact.html" class="footer-link block">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.28em] mb-5" style="color:var(--text-muted);">Connect</p>
+                    <div class="space-y-4">
+                        <a href="https://instagram.com/artory" target="_blank" class="footer-link flex items-center gap-2"><i class="fa-brands fa-instagram w-4"></i> Instagram</a>
+                        <a href="https://wa.me/918837067635" target="_blank" class="footer-link flex items-center gap-2"><i class="fa-brands fa-whatsapp w-4"></i> WhatsApp</a>
+                        <a href="mailto:theartoryproject@gmail.com" class="footer-link flex items-center gap-2"><i class="fa-solid fa-envelope w-4"></i> Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="divider mb-8"></div>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs" style="color:var(--text-muted);">© 2026 ArtoryX. All rights reserved.</p>
+                <p class="text-xs" style="color:var(--text-muted);">Founded by <a href="https://shakespearechabungbam.online" target="_blank" class="hover:text-white transition">Shakespeare Chabungbam</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#050507;z-index:99999;display:none;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;opacity:0;transform:translateY(-14px) scale(0.98);transition:opacity 0.42s cubic-bezier(0.4,0,0.2,1),transform 0.42s cubic-bezier(0.4,0,0.2,1);">
+        <button id="menu-close" style="position:absolute;top:22px;right:22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.1rem;" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div style="display:flex;flex-direction:column;align-items:center;width:100%;max-width:400px;padding:0 28px;">
+            <a href="index.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Home</a>
+            <a href="services.html" style="font-size:2.5rem;font-weight:700;color:#ffffff;text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Services</a>
+            <a href="work.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Work</a>
+            <a href="contact.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;display:block;">Contact</a>
+        </div>
+        <a href="contact.html" style="margin-top:48px;display:inline-block;background:#7c3bed;color:#fff;text-decoration:none;padding:14px 40px;border-radius:50px;font-size:0.9rem;font-weight:600;">Get in Touch</a>
+        <p style="margin-top:20px;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Manipur's Premium Digital Studio</p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

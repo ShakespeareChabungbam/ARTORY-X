@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | ArtoryX — Premium Digital Studio</title>
+    <meta name="description" content="ArtoryX portfolio — daichiro.in web platform, Manfete 2025 event posters, and graphic design showcase.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Work | ArtoryX">
+    <meta property="og:description" content="Curated showcase of ArtoryX projects — web platforms, event posters, and graphic design.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{fontFamily:{outfit:['Outfit','sans-serif'],inter:['Inter','sans-serif']}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .lightbox {
+            position: fixed; inset: 0; z-index: 300;
+            background: rgba(0,0,0,0.96);
+            backdrop-filter: blur(20px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 40px;
+        }
+        .lightbox.open { opacity: 1; pointer-events: auto; }
+        .lightbox img {
+            max-width: 88vw; max-height: 88vh;
+            object-fit: contain; border-radius: 16px;
+            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.06);
+        }
+        .lightbox-close {
+            position: absolute; top: 24px; right: 32px;
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; color: var(--text-muted);
+            cursor: pointer; background: var(--surface-1); border: 1px solid var(--border-subtle);
+            transition: all 0.3s; z-index: 10;
+        }
+        .lightbox-close:hover { color: #fff; background: var(--surface-2); border-color: var(--border-medium); }
+        .featured-card {
+            background: var(--surface-0);
+            border: 1px solid var(--border-subtle);
+            border-radius: 32px;
+            overflow: hidden;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .featured-card:hover {
+            border-color: var(--border-medium);
+            box-shadow: 0 32px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px var(--border-subtle);
+        }
+        .browser-frame {
+            border-radius: 14px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.07);
+            box-shadow: 0 28px 70px -16px rgba(0,0,0,0.8);
+            background: #0a0a12;
+        }
+        .browser-bar {
+            display: flex; align-items: center; gap: 8px;
+            padding: 11px 14px;
+            background: #111118;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .browser-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink:0; }
+        .browser-url {
+            flex: 1; background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 6px; padding: 5px 12px;
+            font-size: 10.5px; color: rgba(255,255,255,0.28);
+            font-family: 'Inter', monospace;
+            display: flex; align-items: center; gap: 6px; min-width: 0;
+        }
+        .browser-url i { font-size: 9px; color: rgba(34,197,94,0.7); flex-shrink:0; }
+        .browser-iframe { width: 100%; height: 380px; border: none; display: block; }
+        .project-stat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px; padding: 14px 18px;
+            transition: all 0.4s ease;
+        }
+        .project-stat:hover { background: var(--surface-1); border-color: var(--border-medium); transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <!-- ── PAGE LOADER ── -->
+    <div id="page-loader">
+        <div class="loader-gif-wrap">
+            <img src="background/812F645B-729C-4F9B-99B7-C505F2C24611.GIF" class="loader-main-gif" alt="">
+        </div>
+        <div class="loader-logo-row">
+            <img src="images/Artorylogo.png" class="loader-logo-img-el" alt="" onerror="this.style.display='none'">
+            <span class="loader-wordmark">ArtoryX</span>
+        </div>
+        <div class="loader-progress-track"><div class="loader-progress-fill"></div></div>
+        <p class="loader-tagline">Our Work</p>
+    </div>
+
+    <div id="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div class="cursor-glow hidden lg:block"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <nav id="navbar" class="nav-container">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo-lockup" id="nav-logo-link" aria-label="ArtoryX Home">
+                <img src="images/Artorylogo.png" alt="" class="nav-logo-img" onerror="this.style.display='none';">
+                <span class="nav-logo gradient-text-logo">ArtoryX</span>
+            </a>
+            <div class="nav-links hidden lg:flex nav-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="work.html" class="nav-link active">Work</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hidden lg:block"><a href="contact.html" class="btn-nav">Get in Touch</a></div>
+            <button id="menu-toggle" class="hamburger-btn lg:hidden" aria-label="Menu">
+                <span class="hb-bar hb-top"></span>
+                <span class="hb-bar hb-bot"></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- ==================== HERO ==================== -->
+    <section class="section-bg relative overflow-hidden" style="padding-top:160px;padding-bottom:80px;">
+        <div class="bg-media">
+            <img src="background/20F589A2-AD1E-41F8-859D-4789BFC4D63E.GIF" alt="" data-parallax="0.2">
+        </div>
+        <div class="bg-overlay bg-overlay-hero"></div>
+        <div class="grid-pattern"></div>
+        <div class="gradient-orb gradient-orb-1"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <span class="reveal section-label">Portfolio</span>
+            <h1 class="reveal reveal-d1 section-heading mb-6" style="font-size:clamp(3rem,6vw,6rem);max-width:600px;">
+                Our work.
+            </h1>
+            <p class="reveal reveal-d2 section-body text-lg max-w-lg">
+                A curated showcase of projects — each one built to the highest standard of quality and craftsmanship.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <!-- ==================== FEATURED: daichiro.in ==================== -->
+    <section class="section-bg relative py-36 sm:py-48 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/6E3DA909-E63C-4C7E-8E5C-BD524ED3A97F.GIF" alt="" data-parallax="0.15">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <span class="reveal section-label">Featured Client</span>
+
+            <!-- Top info row -->
+            <div class="reveal reveal-d1 grid lg:grid-cols-2 gap-14 lg:gap-20 items-start mt-10 mb-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="status-dot"></div>
+                        <span class="text-xs font-semibold tracking-wide" style="color:rgba(34,197,94,0.8);">Live in Production</span>
+                        <span class="text-xs px-2.5 py-1 rounded-full font-semibold" style="background:rgba(124,92,252,0.1);border:1px solid rgba(124,92,252,0.18);color:var(--accent-light);">Built by ArtoryX</span>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] mb-2" style="color:var(--text-muted);">Daichiro Professional Skills Academy</p>
+                    <h2 class="section-heading text-4xl sm:text-5xl lg:text-6xl mb-5">daichiro.in</h2>
+                    <p class="section-body text-sm mb-6 max-w-lg">
+                        Daichiro Professional Skills Academy is an Imphal-based education company offering professional skill training, career counselling, and AI-driven career assessment tools. ArtoryX architected and built their entire digital platform from the ground up — delivering a full-stack, cloud-hosted web experience that powers their business operations.
+                    </p>
+                    <p class="section-body text-sm mb-8 max-w-lg">
+                        The platform includes a dynamic service pages system, student-facing career report PDFs, an admin management dashboard, and integrated AI intelligence — all deployed on AWS EC2 for maximum reliability.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tech-tag">HTML / CSS / JS</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">AWS EC2</span>
+                        <span class="tech-tag">Gemini AI</span>
+                        <span class="tech-tag">PDF Generation</span>
+                        <span class="tech-tag">Admin Dashboard</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://daichiro.in" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm">
+                            <i class="fa-solid fa-globe text-xs"></i>
+                            <span>Visit Live Site</span>
+                        </a>
+                        <a href="https://daichiro.in" target="_blank" rel="noopener noreferrer" class="btn-secondary text-sm">
+                            <span>Explore Platform</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Stats -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="project-stat">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:var(--text-muted);">Project Type</p>
+                        <p class="text-white font-bold text-sm" style="font-family:'Outfit',sans-serif;">Full-Stack Platform</p>
+                    </div>
+                    <div class="project-stat">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:var(--text-muted);">Client</p>
+                        <p class="text-white font-bold text-sm" style="font-family:'Outfit',sans-serif;">Daichiro Academy</p>
+                    </div>
+                    <div class="project-stat">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:var(--text-muted);">Deployment</p>
+                        <p class="text-white font-bold text-sm" style="font-family:'Outfit',sans-serif;">AWS EC2 Cloud</p>
+                    </div>
+                    <div class="project-stat">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:var(--text-muted);">AI Feature</p>
+                        <p class="text-white font-bold text-sm" style="font-family:'Outfit',sans-serif;">Career Assessments</p>
+                    </div>
+                    <div class="project-stat">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:var(--text-muted);">Location</p>
+                        <p class="text-white font-bold text-sm" style="font-family:'Outfit',sans-serif;">Imphal, Manipur</p>
+                    </div>
+                    <div class="project-stat">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-1" style="color:var(--text-muted);">Status</p>
+                        <p class="font-bold text-sm" style="font-family:'Outfit',sans-serif;color:#22c55e;">Live &amp; Active ✓</p>
+                    </div>
+                    <div class="project-stat col-span-2">
+                        <p class="text-[10px] uppercase tracking-widest font-bold mb-2" style="color:var(--text-muted);">Key Features Built</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span style="font-size:0.7rem;padding:3px 10px;border-radius:999px;background:rgba(124,92,252,0.08);border:1px solid rgba(124,92,252,0.14);color:var(--accent-light);">AI Career Report</span>
+                            <span style="font-size:0.7rem;padding:3px 10px;border-radius:999px;background:rgba(124,92,252,0.08);border:1px solid rgba(124,92,252,0.14);color:var(--accent-light);">Admin Panel</span>
+                            <span style="font-size:0.7rem;padding:3px 10px;border-radius:999px;background:rgba(124,92,252,0.08);border:1px solid rgba(124,92,252,0.14);color:var(--accent-light);">PDF Export</span>
+                            <span style="font-size:0.7rem;padding:3px 10px;border-radius:999px;background:rgba(124,92,252,0.08);border:1px solid rgba(124,92,252,0.14);color:var(--accent-light);">Dark Mode UI</span>
+                            <span style="font-size:0.7rem;padding:3px 10px;border-radius:999px;background:rgba(124,92,252,0.08);border:1px solid rgba(124,92,252,0.14);color:var(--accent-light);">Mobile Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live iframe preview -->
+            <div class="reveal reveal-d2 browser-frame">
+                <div class="browser-bar">
+                    <div class="browser-dot" style="background:#ff5f57;"></div>
+                    <div class="browser-dot" style="background:#febc2e;"></div>
+                    <div class="browser-dot" style="background:#28c840;"></div>
+                    <div class="browser-url">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>daichiro.in</span>
+                    </div>
+                    <a href="https://daichiro.in" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.25);font-size:0.7rem;padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);transition:all 0.3s ease;white-space:nowrap;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">
+                        Open ↗
+                    </a>
+                </div>
+                <iframe
+                    src="https://daichiro.in"
+                    class="browser-iframe"
+                    title="Daichiro Professional Skills Academy — daichiro.in"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- ==================== MANFETE 2025 ==================== -->
+    <section class="relative py-36 sm:py-48 overflow-hidden">
+        <div class="gradient-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.06),transparent 70%);top:0;right:-100px;filter:blur(100px);animation:orbFloat1 28s ease-in-out infinite;"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
+                <div>
+                    <span class="reveal section-label" style="color:var(--accent-warm);--accent-light:var(--accent-warm);">Campaign Design</span>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl">Manfete 2025</h2>
+                </div>
+                <p class="reveal reveal-d2 text-sm" style="color:var(--text-muted);">Event poster campaign series</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="reveal portfolio-card" onclick="openLightbox(this)">
+                    <div style="aspect-ratio:3/4;" class="overflow-hidden">
+                        <img src="images/Manfete/Manhunt.jpg" alt="Manhunt Poster" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span class="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,0.15);color:var(--accent-warm);">Poster</span>
+                        </div>
+                        <p class="text-white font-bold text-lg" style="font-family:'Outfit',sans-serif;">Manhunt</p>
+                        <p class="text-xs mt-1" style="color:rgba(255,255,255,0.45);">Manfete 2025</p>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-d1 portfolio-card" onclick="openLightbox(this)">
+                    <div style="aspect-ratio:3/4;" class="overflow-hidden">
+                        <img src="images/Manfete/Queen.jpg" alt="Queen Poster" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span class="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,0.15);color:var(--accent-warm);">Poster</span>
+                        </div>
+                        <p class="text-white font-bold text-lg" style="font-family:'Outfit',sans-serif;">Queen</p>
+                        <p class="text-xs mt-1" style="color:rgba(255,255,255,0.45);">Manfete 2025</p>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-d2 portfolio-card" onclick="openLightbox(this)">
+                    <div style="aspect-ratio:3/4;" class="overflow-hidden">
+                        <img src="images/Manfete/Esports.jpg" alt="Esports Poster" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="flex items-center gap-2 mb-1.5">
+                            <span class="text-[9px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-full" style="background:rgba(245,158,11,0.15);color:var(--accent-warm);">Poster</span>
+                        </div>
+                        <p class="text-white font-bold text-lg" style="font-family:'Outfit',sans-serif;">Esports</p>
+                        <p class="text-xs mt-1" style="color:rgba(255,255,255,0.45);">Manfete 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+
+    <!-- ==================== ARTORYX DEMOS ==================== -->
+    <section class="section-bg relative py-36 sm:py-48 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/DF075031-D309-4C2D-BF06-28FC0398563A.GIF" alt="" data-parallax="0.15">
+        </div>
+        <div class="bg-overlay bg-overlay-center"></div>
+
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
+                <div>
+                    <span class="reveal section-label">Design Gallery</span>
+                    <h2 class="reveal reveal-d1 section-heading text-4xl sm:text-5xl md:text-6xl">ArtoryX Demos</h2>
+                </div>
+                <p class="reveal reveal-d2 text-sm" style="color:var(--text-muted);">Graphic design showcase</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+                <div class="reveal portfolio-card" onclick="openLightbox(this)">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Demo/1.jpg" alt="Demo 1" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content"><p class="text-white font-semibold text-sm">Design #1</p></div>
+                </div>
+                <div class="reveal reveal-d1 portfolio-card" onclick="openLightbox(this)">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Demo/2.jpg" alt="Demo 2" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content"><p class="text-white font-semibold text-sm">Design #2</p></div>
+                </div>
+                <div class="reveal reveal-d2 portfolio-card" onclick="openLightbox(this)">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Demo/3.jpg" alt="Demo 3" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content"><p class="text-white font-semibold text-sm">Design #3</p></div>
+                </div>
+                <div class="reveal portfolio-card" onclick="openLightbox(this)">
+                    <div class="aspect-square overflow-hidden">
+                        <img src="images/Demo/4.jpg" alt="Demo 4" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content"><p class="text-white font-semibold text-sm">Design #4</p></div>
+                </div>
+                <div class="reveal reveal-d1 portfolio-card lg:col-span-2" onclick="openLightbox(this)">
+                    <div style="aspect-ratio:2/1;" class="overflow-hidden">
+                        <img src="images/Demo/5.jpg" alt="Demo 5" loading="lazy">
+                    </div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content"><p class="text-white font-semibold text-sm">Design #5</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== MOTION GIF STRIP ==================== -->
+    <section class="relative py-24 overflow-hidden" style="background:rgba(255,255,255,0.01);border-top:1px solid var(--border-subtle);">
+        <div class="relative z-10 max-w-[1360px] mx-auto px-6 lg:px-14">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+                <div>
+                    <span class="reveal section-label">Motion & Animation</span>
+                    <h2 class="reveal reveal-d1 section-heading text-3xl sm:text-4xl mt-2">Visual FX we produce.</h2>
+                </div>
+                <p class="reveal reveal-d2 text-sm" style="color:var(--text-muted);">Animated assets &amp; motion design samples</p>
+            </div>
+            <div class="reveal reveal-d1" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+                <div class="gif-showcase-card">
+                    <div style="height:180px;overflow:hidden;position:relative;">
+                        <img src="background/CEDD22FF-2D6F-452E-A7D9-3A3FDEDA6A41.GIF" alt="Motion 1" style="width:100%;height:100%;object-fit:cover;display:block;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.85),transparent 60%);"></div>
+                        <div class="card-caption">Visual Effects</div>
+                    </div>
+                </div>
+                <div class="gif-showcase-card">
+                    <div style="height:180px;overflow:hidden;position:relative;">
+                        <img src="background/8896F012-E21C-499B-A737-6058A55A9D77.GIF" alt="Motion 2" style="width:100%;height:100%;object-fit:cover;display:block;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.85),transparent 60%);"></div>
+                        <div class="card-caption">Ambient Loops</div>
+                    </div>
+                </div>
+                <div class="gif-showcase-card">
+                    <div style="height:180px;overflow:hidden;position:relative;">
+                        <img src="background/E277E857-C79C-4E02-9B93-B75B262075E9.GIF" alt="Motion 3" style="width:100%;height:100%;object-fit:cover;display:block;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.85),transparent 60%);"></div>
+                        <div class="card-caption">Light Trails</div>
+                    </div>
+                </div>
+                <div class="gif-showcase-card">
+                    <div style="height:180px;overflow:hidden;position:relative;">
+                        <img src="background/40FEC681-49C7-4A5F-B6D1-2D3E31E60953.GIF" alt="Motion 4" style="width:100%;height:100%;object-fit:cover;display:block;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(3,3,5,0.85),transparent 60%);"></div>
+                        <div class="card-caption">Energy Fields</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== CTA ==================== -->
+    <section class="section-bg relative py-48 sm:py-60 overflow-hidden">
+        <div class="bg-media">
+            <img src="background/3CBF847D-19B7-4352-9B1E-9F3A8A1F3408.GIF" alt="">
+        </div>
+        <div class="bg-overlay bg-overlay-vignette"></div>
+        <div class="bg-overlay bg-overlay-hero"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto px-6 lg:px-14 text-center">
+            <h2 class="reveal section-heading text-4xl sm:text-5xl md:text-6xl mb-7">
+                Your project, next.
+            </h2>
+            <p class="reveal reveal-d1 section-body text-lg mx-auto mb-12 max-w-md">
+                Let's create something extraordinary. Tell us your vision.
+            </p>
+            <div class="reveal reveal-d2">
+                <a href="contact.html" class="btn-primary text-base px-12 py-5">
+                    <span>Get in Touch</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-[1360px] mx-auto px-6 lg:px-14 py-16">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="footer-logo-lockup" aria-label="ArtoryX Home">
+                        <img src="images/Artorylogo.png" alt="" class="footer-logo-img" onerror="this.style.display='none';">
+                        <span class="gradient-text-logo" style="font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-0.04em;">ArtoryX</span>
+                    </a>
+                    <p class="text-sm leading-relaxed max-w-sm" style="color:var(--text-muted);">Premium web solutions and graphic design studio. Crafting digital excellence for brands that demand more.</p>
+                </div>
+                <div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.28em] mb-5" style="color:var(--text-muted);">Pages</p>
+                    <div class="space-y-4">
+                        <a href="index.html" class="footer-link block">Home</a>
+                        <a href="services.html" class="footer-link block">Services</a>
+                        <a href="work.html" class="footer-link block">Work</a>
+                        <a href="contact.html" class="footer-link block">Contact</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-[9px] font-black uppercase tracking-[0.28em] mb-5" style="color:var(--text-muted);">Connect</p>
+                    <div class="space-y-4">
+                        <a href="https://instagram.com/artory" target="_blank" class="footer-link flex items-center gap-2"><i class="fa-brands fa-instagram w-4"></i> Instagram</a>
+                        <a href="https://wa.me/918837067635" target="_blank" class="footer-link flex items-center gap-2"><i class="fa-brands fa-whatsapp w-4"></i> WhatsApp</a>
+                        <a href="mailto:theartoryproject@gmail.com" class="footer-link flex items-center gap-2"><i class="fa-solid fa-envelope w-4"></i> Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="divider mb-8"></div>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs" style="color:var(--text-muted);">© 2026 ArtoryX. All rights reserved.</p>
+                <p class="text-xs" style="color:var(--text-muted);">Founded by <a href="https://shakespearechabungbam.online" target="_blank" class="hover:text-white transition">Shakespeare Chabungbam</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#050507;z-index:99999;display:none;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;opacity:0;transform:translateY(-14px) scale(0.98);transition:opacity 0.42s cubic-bezier(0.4,0,0.2,1),transform 0.42s cubic-bezier(0.4,0,0.2,1);">
+        <button id="menu-close" style="position:absolute;top:22px;right:22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.1rem;" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div style="display:flex;flex-direction:column;align-items:center;width:100%;max-width:400px;padding:0 28px;">
+            <a href="index.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Home</a>
+            <a href="services.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Services</a>
+            <a href="work.html" style="font-size:2.5rem;font-weight:700;color:#ffffff;text-decoration:none;width:100%;text-align:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;">Work</a>
+            <a href="contact.html" style="font-size:2.5rem;font-weight:700;color:rgba(255,255,255,0.5);text-decoration:none;width:100%;text-align:center;padding:16px 0;display:block;">Contact</a>
+        </div>
+        <a href="contact.html" style="margin-top:48px;display:inline-block;background:#7c3bed;color:#fff;text-decoration:none;padding:14px 40px;border-radius:50px;font-size:0.9rem;font-weight:600;">Get in Touch</a>
+        <p style="margin-top:20px;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Manipur's Premium Digital Studio</p>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        function openLightbox(card) {
+            const img = card.querySelector('img');
+            if (!img) return;
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox-img').alt = img.alt;
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+</body>
+</html>
